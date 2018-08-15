@@ -1,6 +1,6 @@
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
-import fetchUsers, { setUsersAction } from '../src/state/fetchUsers'
+import fetchUsers, { fetchUsersAction } from '../src/state/fetchUsers'
 
 
 const reducer = combineReducers({
@@ -15,7 +15,4 @@ export const store = createStore(
         applyMiddleware(thunk)
     )
 )
-
-store.dispatch(setUsersAction())
-
 
