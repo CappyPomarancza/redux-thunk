@@ -6,7 +6,8 @@ const Users = (props) => (
         {
             props._isUsersAreLoading ?
                 'LOADING USERS...' :
-                props._users.results.map(user => (
+            
+               props._users ? props._users.results.map(user => (
                     <div>
                         {user.name.first}
                         <div>
@@ -14,6 +15,8 @@ const Users = (props) => (
                         </div>
                     </div>
                 ))
+                :
+                'NO USERS!'
         }
 
 

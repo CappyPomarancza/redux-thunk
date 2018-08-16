@@ -7,8 +7,11 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Auth/>
-        <Users/>
+        <Auth>
+
+          <Users />
+
+        </Auth>
       </div>
     )
   }
