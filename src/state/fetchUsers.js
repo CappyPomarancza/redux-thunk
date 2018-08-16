@@ -10,6 +10,7 @@ export const usersStartedLoadingAction = () => (
         type: USERS_STARTED_LOADING
     }
 )
+
 export const usersStoppedLoadingAction = () => (
     {
         type: USERS_STOPPED_LOADING
@@ -22,13 +23,14 @@ export const setUsersAction = (data) => (
         data
     }
 )
-export const fetchUsersAction = () => () => {
-    store.dispatch(usersStartedLoadingAction())
+
+export const fetchUsersAction = () => (dispatch, getState) => {
+    dispatch(usersStartedLoadingAction())
     fetch('https://randomuser.me/api?results=10')
         .then(response => response.json())
         .then(data => {
-            store.dispatch(setUsersAction(data))
-            store.dispatch(usersStoppedLoadingAction())
+            dispatch(setUsersAction(data))
+            dispatch(usersStoppedLoadingAction())
         })
 }
 
